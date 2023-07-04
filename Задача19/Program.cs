@@ -4,11 +4,18 @@
 // 12821 -> да
 // 23432 -> да
 
-Console.Write("Введите число: ");
-string stringNumber = Console.ReadLine();
-char number = ',';
-int index = stringNumber.IndexOf(number);
-if (stringNumber[0] == stringNumber[4] && stringNumber[1] == stringNumber[3])
+Console.WriteLine("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+int fifthnum = number % 10;
+int firstnum = number / 10000;
+int secondnum = (number / 1000) - ((number / 1000) / 10 * 10);
+int forthnum = (number / 10) - ((number / 10) / 10 * 10);
+if(number<10000 || number>99999)
+{start:
+    Console.WriteLine("Нужно пятизначное число");
+    number = Convert.ToInt32(Console.ReadLine());
+goto start;}
+else if (fifthnum == firstnum && secondnum == forthnum)
 {
     Console.WriteLine("Введенное число является палиндромом");
 }
